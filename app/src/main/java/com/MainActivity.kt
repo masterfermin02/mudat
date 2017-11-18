@@ -1,7 +1,8 @@
-package com.mudat.maste.mudat
+package com
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.mudat.maste.mudat.R
 
 class MainActivity : AppCompatActivity() {
 

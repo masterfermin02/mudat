@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mudat.maste.mudat.MainActivity">
+    tools:context="com.mudat.maste.mudat.com.MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
