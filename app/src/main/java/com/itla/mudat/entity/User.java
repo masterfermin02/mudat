@@ -89,6 +89,7 @@ public class User {
                 ", userType='" + userType + '\'' +
                 ", identity='" + identity + '\'' +
                 ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
                 ", pass='" + pass + '\'' +
                 ", status='" + status + '\'' +
                 '}';
