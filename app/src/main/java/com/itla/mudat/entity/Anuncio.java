@@ -10,7 +10,7 @@ public class Anuncio {
 
     protected int id;
     protected Categoria categoria;
-    protected Usuario usuario;
+    protected User usuario;
     protected Date fecha;
     protected String condicion;
     protected double precio;
