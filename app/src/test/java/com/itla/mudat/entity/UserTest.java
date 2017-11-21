@@ -13,25 +13,37 @@ public class UserTest {
 
     @Test
     public void saveUser() throws Exception{
+        int id = 0;
+        String name = "Mario";
+        UserType userType = UserType.CLIENTE;
+        String identity = "123456";
+        String email = "test@email.com";
+        String phone = "8095556565";
+        String pass = "123456";
+        Boolean status = Boolean.TRUE;
+
         User user = new User();
-        user.setName("Mario");
-        user.setUserType(UserType.CLIENTE);
-        user.setIdentity("123456");
-        user.setEmail("test@email.com");
-        user.setPhone("8095556565");
-        user.setPass("123456");
-        user.setStatus(Boolean.TRUE);
+        user.setName(name);
+        user.setUserType(userType);
+        user.setIdentity(identity);
+        user.setEmail(email);
+        user.setPhone(phone);
+        user.setPass(pass);
+        user.setStatus(status);
 
-        User userExpert = new User();
-        userExpert.setName("Mario");
-        userExpert.setUserType(UserType.CLIENTE);
-        userExpert.setIdentity("123456");
-        userExpert.setEmail("test@email.com");
-        userExpert.setPhone("8095556565");
-        userExpert.setPass("123456");
-        userExpert.setStatus(Boolean.TRUE);
 
-        assertEquals(userExpert.toString(), user.save());
+        String userExpert = "UserSchema{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", userType='" + userType + '\'' +
+                ", identity='" + identity + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", pass='" + pass + '\'' +
+                ", status='" + status + '\'' +
+                '}';
+
+        assertEquals(userExpert, user.toString());
 
     }
 

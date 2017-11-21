@@ -83,7 +83,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "UserSchema{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", userType='" + userType + '\'' +

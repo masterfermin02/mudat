@@ -9,15 +9,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.itla.mudat.dao.ConexionSQLiteHelper;
 import com.itla.mudat.entity.User;
 
 import com.itla.mudat.R;
 import com.itla.mudat.entity.UserType;
+import com.itla.mudat.repository.user.UserSqlRepository;
 
 public class RegisterUser extends AppCompatActivity {
 
-    protected Button save;
-    protected Button cancel;
+
     protected EditText name;
     protected EditText userType;
     protected EditText identity;
@@ -25,6 +27,7 @@ public class RegisterUser extends AppCompatActivity {
     protected EditText phone;
     protected EditText pass;
     protected EditText status;
+    private UserSqlRepository repository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +35,7 @@ public class RegisterUser extends AppCompatActivity {
         setContentView(R.layout.activity_register_user);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        repository = new UserSqlRepository(new ConexionSQLiteHelper(this,"mudat_db", null, 1));
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,10 +45,6 @@ public class RegisterUser extends AppCompatActivity {
             }
         });
         this.mapProp();
-
-
-
-
 
     }
 
@@ -59,7 +58,7 @@ public class RegisterUser extends AppCompatActivity {
         user.setPhone(phone.getText().toString());
         user.setPass(pass.getText().toString());
         user.setStatus(Boolean.TRUE);
-        Log.i("I",user.save());
+        repository.add(user);
     }
 
     protected void mapProp()

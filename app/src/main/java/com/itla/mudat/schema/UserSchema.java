@@ -4,7 +4,7 @@ package com.itla.mudat.schema;
  * Created by maste on 11/19/2017.
  */
 
-public class User {
+public class UserSchema {
 
     public static final String TABLE = "user";
     public static final String ID = "id";
