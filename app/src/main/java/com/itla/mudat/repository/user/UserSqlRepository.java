@@ -61,16 +61,47 @@ public class UserSqlRepository implements Repository<User> {
     @Override
     public void update(User item) {
         // TODO to be implemented
+        final SQLiteDatabase database = openHelper.getWritableDatabase();
+        database.beginTransaction();
+        String[] parameters={item.getId().toString()};
+
+        try {
+            final ContentValues contentValues = toContentValuesMapper.map(item);
+            database.update(UserSchema.TABLE, contentValues,UserSchema.ID +" = ?",parameters);
+            database.setTransactionSuccessful();
+        } finally {
+            database.endTransaction();
+            database.close();
+        }
     }
 
     @Override
     public void remove(User item) {
         // TODO to be implemented
+        final SQLiteDatabase database = openHelper.getWritableDatabase();
+        database.beginTransaction();
+        String[] parameters={item.getId().toString()};
+
+        try {
+            database.delete(UserSchema.TABLE, UserSchema.ID +" = ?",parameters);
+            database.setTransactionSuccessful();
+        } finally {
+            database.endTransaction();
+            database.close();
+        }
     }
 
     @Override
     public void remove(Specification specification) {
         // TODO to be implemented
+        final SqlSpecification sqlSpecification = (SqlSpecification) specification;
+        final SQLiteDatabase database = openHelper.getReadableDatabase();
+
+        try {
+            database.execSQL(sqlSpecification.toSqlQuery());
+        } finally {
+            database.close();
+        }
     }
 
     @Override
