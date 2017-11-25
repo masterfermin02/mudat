@@ -13,6 +13,8 @@ public interface Repository<T> {
 
     void update(T item);
 
+    T get(Specification specification);
+
     void remove(T item);
 
     void remove(Specification specification);

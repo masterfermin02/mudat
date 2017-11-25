@@ -49,8 +49,7 @@ public class UserSqlRepositoryTest {
         //SQLiteDatabase db = con.getReadableDatabase();
         User user = _createUser();
         repository.add(user);
-        List<User> userList = repository.query(new UserByNameSpecification("Mario2"));
-        assertEquals(userList.get(0).getName(), user.getName());
+        assertEquals(repository.get(new UserByNameSpecification("Mario2")).getName(), user.getName());
     }
 
     @Test
@@ -78,10 +77,9 @@ public class UserSqlRepositoryTest {
     public void removeUser()
     {
         UserByNameSpecification userByNameSpecification = new UserByNameSpecification("Mario-updated");
-        List<User> userList = repository.query(userByNameSpecification);
-        User user = userList.get(0);
+        User user = repository.get(userByNameSpecification);
         repository.remove(user);
-        userList = repository.query(new UserByIdSpecification(user.getId()));
+        List<User> userList = repository.query(new UserByIdSpecification(user.getId()));
         assertTrue(userList.isEmpty());
     }
 

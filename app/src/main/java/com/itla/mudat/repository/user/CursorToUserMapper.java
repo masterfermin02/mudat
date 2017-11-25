@@ -18,10 +18,11 @@ public class CursorToUserMapper implements Mapper<Cursor,User> {
         User user = new User();
         user.setId(cursor.getInt(cursor.getColumnIndex(UserSchema.ID)));
         user.setName(cursor.getString(cursor.getColumnIndex(UserSchema.NAME)));
-        user.setUserType(UserType.CLIENTE);
+        user.setUserType(UserType.valueOf(cursor.getString(cursor.getColumnIndex(UserSchema.USER_TYPE))));
         user.setIdentity(cursor.getString(cursor.getColumnIndex(UserSchema.IDENTITY)));
         user.setEmail(cursor.getString(cursor.getColumnIndex(UserSchema.EMAIL)));
         user.setPhone(cursor.getString(cursor.getColumnIndex(UserSchema.PHONE)));
+        user.setStatus(Boolean.valueOf(cursor.getString(cursor.getColumnIndex(UserSchema.STATUS))));
 
         return user;
     }

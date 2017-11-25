@@ -76,6 +76,12 @@ public class UserSqlRepository implements Repository<User> {
     }
 
     @Override
+    public User get(Specification specification)
+    {
+        return query(specification).get(0);
+    }
+
+    @Override
     public void remove(User item) {
         // TODO to be implemented
         final SQLiteDatabase database = openHelper.getWritableDatabase();
