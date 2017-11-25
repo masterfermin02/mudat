@@ -4,7 +4,7 @@ package com.itla.mudat.schema;
  * Created by maste on 11/19/2017.
  */
 
-public class Category {
+public class CategorySchema {
 
     public static final String TABLE = "category";
     public static final String ID = "id";

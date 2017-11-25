@@ -1,4 +1,4 @@
-package com.itla.mudat.repository;
+package com.itla.mudat.repository.user;
 
 import android.support.test.runner.AndroidJUnit4;
 import android.util.Log;
@@ -6,6 +6,7 @@ import android.util.Log;
 import com.itla.mudat.dao.ConexionSQLiteHelper;
 import com.itla.mudat.entity.User;
 import com.itla.mudat.entity.UserType;
+import com.itla.mudat.repository.BaseSqlRepositoryTest;
 import com.itla.mudat.repository.user.DeleteUserByNameSpecification;
 import com.itla.mudat.repository.user.UserByIdSpecification;
 import com.itla.mudat.repository.user.UserByNameSpecification;
@@ -26,21 +27,21 @@ import static org.junit.Assert.assertTrue;
  * Created by maste on 11/20/2017.
  */
 @RunWith(AndroidJUnit4.class)
-public class UserSqlRepositoryTest {
-    private ConexionSQLiteHelper con;
+public class UserSqlRepositoryTest extends BaseSqlRepositoryTest {
+
     private UserSqlRepository repository;
 
 
     @Before
     public void setUp() throws Exception {
 
-        con = new ConexionSQLiteHelper(getTargetContext(),"mudat_db_test", null, 1);
-        repository = new UserSqlRepository(con);
+
+        repository = new UserSqlRepository(this.getConexionSQLiteHelper());
     }
 
     @After
     public void tearDown() throws Exception {
-        con.close();
+        this.getConexionSQLiteHelper().close();
     }
 
     @Test
@@ -63,14 +64,12 @@ public class UserSqlRepositoryTest {
     public void updateUser()
     {
         repository.add(_createUser());
-        List<User> userList = repository.query(new UserByNameSpecification("Mario2"));
-        User user = userList.get(0);
+        User user = repository.get(new UserByNameSpecification("Mario2"));
         String name = "Mario-updated";
         user.setName(name);
         repository.update(user);
-        userList = repository.query(new UserByNameSpecification(name));
 
-        assertEquals(userList.get(0).getName(), name);
+        assertEquals(repository.get(new UserByNameSpecification(name)).getName(), name);
     }
 
     @Test

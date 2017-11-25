@@ -32,7 +32,7 @@ public class UserTest {
         user.setStatus(status);
 
 
-        String userExpert = "UserSchema{" +
+        String userExpert = "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", userType='" + userType + '\'' +

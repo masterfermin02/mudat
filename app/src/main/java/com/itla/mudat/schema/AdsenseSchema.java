@@ -4,7 +4,7 @@ package com.itla.mudat.schema;
  * Created by maste on 11/19/2017.
  */
 
-public class Adsense {
+public class AdsenseSchema {
 
     public static final String TABLE = "adsense";
     public static final String ID = "id";

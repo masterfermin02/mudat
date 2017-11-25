@@ -27,7 +27,7 @@ public class ConexionSQLiteHelperTest {
 
     @Before
     public void setUp() throws Exception {
-        con = new ConexionSQLiteHelper(getTargetContext(),"mudat_db_test", null, 1);
+        con = new ConexionSQLiteHelper(getTargetContext(),"mudat_db_test", null, 2);
     }
 
     @After
