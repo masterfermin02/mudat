@@ -21,12 +21,10 @@ public class RegisterUser extends AppCompatActivity {
 
 
     protected EditText name;
-    protected EditText userType;
     protected EditText identity;
     protected EditText email;
     protected EditText phone;
     protected EditText pass;
-    protected EditText status;
     private UserSqlRepository repository;
 
     @Override
@@ -59,6 +57,7 @@ public class RegisterUser extends AppCompatActivity {
         user.setPass(pass.getText().toString());
         user.setStatus(Boolean.TRUE);
         repository.add(user);
+        clean();
     }
 
     protected void mapProp()
@@ -70,7 +69,7 @@ public class RegisterUser extends AppCompatActivity {
         this.pass = (EditText) findViewById(R.id.pass);
     }
 
-    public void clean(View view)
+    public void clean()
     {
         name.setText("");
         identity.setText("");
