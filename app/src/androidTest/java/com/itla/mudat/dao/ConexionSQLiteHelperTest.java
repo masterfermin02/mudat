@@ -16,6 +16,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.itla.mudat.helpers.DbHelpers;
+import com.itla.mudat.repository.SqlRepositoryHelpTest;
 
 /**
  * Created by maste on 11/20/2017.
@@ -27,7 +28,7 @@ public class ConexionSQLiteHelperTest {
 
     @Before
     public void setUp() throws Exception {
-        con = new ConexionSQLiteHelper(getTargetContext(),"mudat_db_test", null, 2);
+        con = SqlRepositoryHelpTest.getConexionSQLiteHelper();
     }
 
     @After

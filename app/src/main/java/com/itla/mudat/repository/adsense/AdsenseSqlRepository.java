@@ -1,16 +1,18 @@
-package com.itla.mudat.repository.category;
+package com.itla.mudat.repository.adsense;
 
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.itla.mudat.entity.Category;
+import com.itla.mudat.entity.Adsense;
 import com.itla.mudat.repository.Mapper;
 import com.itla.mudat.repository.Repository;
 import com.itla.mudat.repository.Specification;
 import com.itla.mudat.repository.SqlSpecification;
-import com.itla.mudat.schema.CategorySchema;
+import com.itla.mudat.repository.category.CategorySqlRepository;
+import com.itla.mudat.repository.user.UserSqlRepository;
+import com.itla.mudat.schema.AdsenseSchema;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,35 +22,35 @@ import java.util.List;
  * Created by maste on 11/25/2017.
  */
 
-public class CategorySqlRepository implements Repository<Category> {
+public class AdsenseSqlRepository implements Repository<Adsense> {
 
     private final SQLiteOpenHelper openHelper;
 
-    private final Mapper<Category, ContentValues> toContentValuesMapper;
-    private final Mapper<Cursor, Category> toCategoryMapper;
+    private final Mapper<Adsense, ContentValues> toContentValuesMapper;
+    private final Mapper<Cursor, Adsense> toAdsenseMapper;
 
-    public CategorySqlRepository(SQLiteOpenHelper openHelper) {
+    public AdsenseSqlRepository(SQLiteOpenHelper openHelper) {
         this.openHelper = openHelper;
 
-        this.toContentValuesMapper = new CategoryToContentValuesMapper();
-        this.toCategoryMapper = new CursorToCategoryMapper();
+        this.toContentValuesMapper = new AdsenseToContentValuesMapper();
+        this.toAdsenseMapper = new CursorToAdsenseMapper(new CategorySqlRepository(openHelper), new UserSqlRepository(openHelper));
     }
 
     @Override
-    public void add(Category item) {
+    public void add(Adsense item) {
         add(Collections.singletonList(item));
     }
 
     @Override
-    public void add(Iterable<Category> items) {
+    public void add(Iterable<Adsense> items) {
         final SQLiteDatabase database = openHelper.getWritableDatabase();
         database.beginTransaction();
 
         try {
-            for (Category item : items) {
+            for (Adsense item : items) {
                 final ContentValues contentValues = toContentValuesMapper.map(item);
 
-                database.insert(CategorySchema.TABLE, null, contentValues);
+                database.insert(AdsenseSchema.TABLE, null, contentValues);
             }
 
             database.setTransactionSuccessful();
@@ -59,7 +61,7 @@ public class CategorySqlRepository implements Repository<Category> {
     }
 
     @Override
-    public void update(Category item) {
+    public void update(Adsense item) {
         // TODO to be implemented
         final SQLiteDatabase database = openHelper.getWritableDatabase();
         database.beginTransaction();
@@ -67,7 +69,7 @@ public class CategorySqlRepository implements Repository<Category> {
 
         try {
             final ContentValues contentValues = toContentValuesMapper.map(item);
-            database.update(CategorySchema.TABLE, contentValues,CategorySchema.ID +" = ?",parameters);
+            database.update(AdsenseSchema.TABLE, contentValues, AdsenseSchema.ID +" = ?",parameters);
             database.setTransactionSuccessful();
         } finally {
             database.endTransaction();
@@ -76,23 +78,20 @@ public class CategorySqlRepository implements Repository<Category> {
     }
 
     @Override
-    public Category get(Specification specification)
+    public Adsense get(Specification specification)
     {
-        List<Category> list = query(specification);
-        if(!list.isEmpty())
         return query(specification).get(0);
-        return new Category();
     }
 
     @Override
-    public void remove(Category item) {
+    public void remove(Adsense item) {
         // TODO to be implemented
         final SQLiteDatabase database = openHelper.getWritableDatabase();
         database.beginTransaction();
         String[] parameters={item.getId().toString()};
 
         try {
-            database.delete(CategorySchema.TABLE, CategorySchema.ID +" = ?",parameters);
+            database.delete(AdsenseSchema.TABLE, AdsenseSchema.ID +" = ?",parameters);
             database.setTransactionSuccessful();
         } finally {
             database.endTransaction();
@@ -114,11 +113,11 @@ public class CategorySqlRepository implements Repository<Category> {
     }
 
     @Override
-    public List<Category> query(Specification specification) {
+    public List<Adsense> query(Specification specification) {
         final SqlSpecification sqlSpecification = (SqlSpecification) specification;
 
         final SQLiteDatabase database = openHelper.getReadableDatabase();
-        final List<Category> categories = new ArrayList<>();
+        final List<Adsense> categories = new ArrayList<>();
 
         try {
             final Cursor cursor = database.rawQuery(sqlSpecification.toSqlQuery(), new String[]{});
@@ -126,7 +125,7 @@ public class CategorySqlRepository implements Repository<Category> {
             for (int i = 0, size = cursor.getCount(); i < size; i++) {
                 cursor.moveToPosition(i);
 
-                categories.add(toCategoryMapper.map(cursor));
+                categories.add(toAdsenseMapper.map(cursor));
             }
 
             cursor.close();

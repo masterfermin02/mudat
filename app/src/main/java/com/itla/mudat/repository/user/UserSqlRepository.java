@@ -78,7 +78,10 @@ public class UserSqlRepository implements Repository<User> {
     @Override
     public User get(Specification specification)
     {
-        return query(specification).get(0);
+        List<User> list = query(specification);
+        if(!list.isEmpty())
+            return query(specification).get(0);
+        return new User();
     }
 
     @Override

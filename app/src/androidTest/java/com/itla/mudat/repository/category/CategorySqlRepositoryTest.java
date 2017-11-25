@@ -1,11 +1,10 @@
 package com.itla.mudat.repository.category;
 
 import android.support.test.runner.AndroidJUnit4;
-import android.util.Log;
 
 import com.itla.mudat.dao.ConexionSQLiteHelper;
 import com.itla.mudat.entity.Category;
-import com.itla.mudat.repository.BaseSqlRepositoryTest;
+import com.itla.mudat.repository.SqlRepositoryHelpTest;
 
 import org.junit.After;
 import org.junit.Before;
@@ -23,14 +22,14 @@ import static org.junit.Assert.assertEquals;
  */
 
 @RunWith(AndroidJUnit4.class)
-public class CategorySqlRepositoryTest  extends BaseSqlRepositoryTest {
+public class CategorySqlRepositoryTest   {
 
     private ConexionSQLiteHelper con;
     private CategorySqlRepository repository;
 
     @Before
     public void setUp() throws Exception {
-        con = new ConexionSQLiteHelper(getTargetContext(),"mudat_db_test", null, 2);
+        con = SqlRepositoryHelpTest.getConexionSQLiteHelper();
         repository = new CategorySqlRepository(con);
     }
 

@@ -11,7 +11,9 @@ public class AdsenseSchema {
     public static final String USERID = "userId";
     public static final String CATEGORYID = "categoryId";
     public static final String CREATED_AT = "created_at";
+    public static final String CONDICTION = "condiction";
     public static final String PRICE = "price";
+    public static final String TITLE = "title";
     public static final String LOCATION = "location";
     public static final String DETAILS = "details";
 
@@ -20,7 +22,9 @@ public class AdsenseSchema {
 	        "`"+USERID+"`	INTEGER,"+
             "`"+CATEGORYID+"`	INTEGER,"+
             "`"+CREATED_AT+"`	TEXT,"+
+            "`"+CONDICTION+"`	TEXT,"+
             "`"+PRICE+"`	REAL,"+
+            "`"+TITLE+"`	TEXT,"+
             "`"+LOCATION+"`	TEXT,"+
             "`"+DETAILS+"`	TEXT"+
             ");";

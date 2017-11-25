@@ -1,16 +1,11 @@
 package com.itla.mudat.repository.user;
 
 import android.support.test.runner.AndroidJUnit4;
-import android.util.Log;
 
 import com.itla.mudat.dao.ConexionSQLiteHelper;
 import com.itla.mudat.entity.User;
 import com.itla.mudat.entity.UserType;
-import com.itla.mudat.repository.BaseSqlRepositoryTest;
-import com.itla.mudat.repository.user.DeleteUserByNameSpecification;
-import com.itla.mudat.repository.user.UserByIdSpecification;
-import com.itla.mudat.repository.user.UserByNameSpecification;
-import com.itla.mudat.repository.user.UserSqlRepository;
+import com.itla.mudat.repository.SqlRepositoryHelpTest;
 
 import org.junit.After;
 import org.junit.Before;
@@ -19,7 +14,6 @@ import org.junit.runner.RunWith;
 
 import java.util.List;
 
-import static android.support.test.InstrumentationRegistry.getTargetContext;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -27,21 +21,21 @@ import static org.junit.Assert.assertTrue;
  * Created by maste on 11/20/2017.
  */
 @RunWith(AndroidJUnit4.class)
-public class UserSqlRepositoryTest extends BaseSqlRepositoryTest {
-
+public class UserSqlRepositoryTest {
+    private ConexionSQLiteHelper con;
     private UserSqlRepository repository;
 
 
     @Before
     public void setUp() throws Exception {
 
-
-        repository = new UserSqlRepository(this.getConexionSQLiteHelper());
+        con = SqlRepositoryHelpTest.getConexionSQLiteHelper();
+        repository = new UserSqlRepository(con);
     }
 
     @After
     public void tearDown() throws Exception {
-        this.getConexionSQLiteHelper().close();
+        con.close();
     }
 
     @Test

@@ -5,7 +5,6 @@ import android.content.ContentValues;
 import com.itla.mudat.entity.Category;
 import com.itla.mudat.repository.Mapper;
 import com.itla.mudat.schema.CategorySchema;
-import com.itla.mudat.schema.UserSchema;
 
 /**
  * Created by maste on 11/25/2017.
