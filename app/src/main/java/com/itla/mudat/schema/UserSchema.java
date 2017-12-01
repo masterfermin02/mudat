@@ -16,6 +16,7 @@ public class UserSchema {
     public static final String PASS = "pass";
     public static final String STATUS = "status";
 
+
     public static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS `"+TABLE+"` (" +
             "`"+ID+"` INTEGER PRIMARY KEY AUTOINCREMENT, " +
             "`"+NAME+"` TEXT," +
