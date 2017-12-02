@@ -3,7 +3,7 @@ package com.itla.mudat.repository.category;
 import android.content.ContentValues;
 
 import com.itla.mudat.entity.Category;
-import com.itla.mudat.repository.Mapper;
+import com.itla.mudat.mappers.Mapper;
 import com.itla.mudat.schema.CategorySchema;
 
 /**

@@ -3,7 +3,7 @@ package com.itla.mudat.repository.user;
 import android.content.ContentValues;
 
 import com.itla.mudat.entity.User;
-import com.itla.mudat.repository.Mapper;
+import com.itla.mudat.mappers.Mapper;
 import com.itla.mudat.schema.UserSchema;
 
 /**

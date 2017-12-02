@@ -58,4 +58,6 @@ public class UserComponent {
     public EditText getPass() {
         return pass;
     }
+
+
 }

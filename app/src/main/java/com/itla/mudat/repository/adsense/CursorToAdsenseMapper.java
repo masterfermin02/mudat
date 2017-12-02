@@ -3,7 +3,7 @@ package com.itla.mudat.repository.adsense;
 import android.database.Cursor;
 
 import com.itla.mudat.entity.Adsense;
-import com.itla.mudat.repository.Mapper;
+import com.itla.mudat.mappers.Mapper;
 import com.itla.mudat.repository.category.CategoryByIdSpecification;
 import com.itla.mudat.repository.category.CategorySqlRepository;
 import com.itla.mudat.repository.user.UserByIdSpecification;

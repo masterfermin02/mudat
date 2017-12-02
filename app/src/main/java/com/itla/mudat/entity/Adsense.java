@@ -1,12 +1,13 @@
 package com.itla.mudat.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by maste on 11/18/2017.
  */
 
-public class Adsense {
+public class Adsense implements Serializable {
 
     protected int id;
     protected Category category;

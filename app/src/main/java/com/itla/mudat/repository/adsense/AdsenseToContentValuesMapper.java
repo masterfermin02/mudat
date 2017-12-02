@@ -3,10 +3,8 @@ package com.itla.mudat.repository.adsense;
 import android.content.ContentValues;
 
 import com.itla.mudat.entity.Adsense;
-import com.itla.mudat.repository.Mapper;
+import com.itla.mudat.mappers.Mapper;
 import com.itla.mudat.schema.AdsenseSchema;
-
-import java.util.ArrayDeque;
 
 /**
  * Created by maste on 11/25/2017.
