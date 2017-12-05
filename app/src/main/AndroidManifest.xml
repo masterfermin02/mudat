@@ -20,7 +20,10 @@
             android:name=".views.users.RegisterUser"
             android:label="@string/title_activity_register_user"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".views.users.ListUser"></activity>
+        <activity android:name=".views.users.ListUser" />
+        <activity android:name=".views.categories.ListCategory" />
+        <activity android:name=".views.categories.RegisterCategory" />
+        <activity android:name=".views.adsenses.ListAdsense"></activity>
     </application>
 
 </manifest>

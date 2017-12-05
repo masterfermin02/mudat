@@ -1,5 +1,6 @@
 package com.itla.mudat.views.users;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -27,23 +28,14 @@ public class RegisterUser extends AppCompatActivity {
     private SaveCleanUserScreenCommand saveCleanUserScreenCommand;
     private CleanUserScreenCommand cleanUserScreenCommand;
     private UserValidation userValidation;
-    User user;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_user);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
         repository = new UserSqlRepository(DbHelpers.getDbConnection(this));
-       /* FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
 
         UserComponent userComponent = new UserComponent();
         userComponent.setName((EditText) findViewById(R.id.name));
@@ -51,10 +43,11 @@ public class RegisterUser extends AppCompatActivity {
         userComponent.setEmail((EditText) findViewById(R.id.email));
         userComponent.setPhone((EditText) findViewById(R.id.phone));
         userComponent.setPass((EditText) findViewById(R.id.pass));
+
         cleanUserScreenCommand = new CleanUserScreenCommand(userComponent);
         saveCleanUserScreenCommand = new SaveCleanUserScreenCommand(userComponent, repository, cleanUserScreenCommand);
         userValidation = new UserValidation(userComponent);
-        new FillUserEditText(userComponent, user, getIntent().getExtras()).execute();
+        new FillUserEditText(userComponent, getIntent().getExtras()).execute();
 
     }
 
@@ -62,6 +55,7 @@ public class RegisterUser extends AppCompatActivity {
     {
         if(userValidation.validate())
             saveCleanUserScreenCommand.execute();
+        finish();
     }
 
     public void clean(View view)

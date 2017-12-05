@@ -15,7 +15,7 @@ import java.util.List;
 
 public class SaveCleanUserScreenCommand implements Command {
 
-    PipeLineCommand pipeLineCommand;
+    private PipeLineCommand pipeLineCommand;
 
     public SaveCleanUserScreenCommand(UserComponent userComponent, UserSqlRepository repository)
     {

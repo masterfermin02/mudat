@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
 
 import com.itla.mudat.R;
+import com.itla.mudat.entity.UserType;
 
 /**
  * Created by maste on 11/30/2017.
@@ -11,11 +12,14 @@ import com.itla.mudat.R;
 
 public class UserComponent {
 
+    private int id;
     private EditText name;
     private EditText identity;
     private EditText email;
     private EditText phone;
     private EditText pass;
+    private UserType userType = UserType.CLIENTE;
+    private boolean status = true;
 
 
 
@@ -39,6 +43,18 @@ public class UserComponent {
         this.pass = pass;
     }
 
+    public void setId(int id){
+        this.id = id;
+    }
+
+    public void setUserType(UserType userType){
+        this.userType = userType;
+    }
+
+    public void setStatus(boolean status){
+        this.status = status;
+    }
+
     public EditText getName() {
         return name;
     }
@@ -57,6 +73,16 @@ public class UserComponent {
 
     public EditText getPass() {
         return pass;
+    }
+
+    public int getId(){ return id;}
+
+    public UserType getUserType(){
+        return this.userType;
+    }
+
+    public boolean getStatus(){
+        return this.status;
     }
 
 

@@ -8,7 +8,6 @@ import android.view.View;
 import com.itla.mudat.views.adsenses.ListAdsense;
 import com.itla.mudat.views.categories.ListCategory;
 import com.itla.mudat.views.users.ListUser;
-import com.itla.mudat.views.users.RegisterUser;
 
 
 public class MainActivity extends AppCompatActivity {

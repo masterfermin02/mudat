@@ -24,14 +24,18 @@ public class SaveUserCommand implements Command {
     @Override
     public void execute() {
         User user = new User();
+        user.setId(userComponent.getId());
         user.setName(userComponent.getName().getText().toString());
-        user.setUserType(UserType.CLIENTE);
+        user.setUserType(userComponent.getUserType());
         user.setIdentity(userComponent.getIdentity().getText().toString());
         user.setEmail(userComponent.getEmail().getText().toString());
         user.setPhone(userComponent.getPhone().getText().toString());
         user.setPass(userComponent.getPass().getText().toString());
-        user.setStatus(Boolean.TRUE);
-        repository.add(user);
+        user.setStatus(userComponent.getStatus());
+        if(userComponent.getId() != 0)
+            repository.update(user);
+        else
+            repository.add(user);
     }
 
 }

@@ -1,6 +1,8 @@
 package com.itla.mudat.views.users;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,13 +22,21 @@ import java.util.List;
 public class ListUser extends AppCompatActivity {
 
     private UserSqlRepository repository;
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_list);
-
-        ListView listView = (ListView) findViewById(R.id.listViewUsers);
+        FloatingActionButton btnAddUser = (FloatingActionButton) findViewById(R.id.btnAddUser);
+        btnAddUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent rUser = new Intent(ListUser.this, RegisterUser.class);
+                startActivity(rUser);
+            }
+        });
+        listView = (ListView) findViewById(R.id.listViewUsers);
 
         repository = new UserSqlRepository(DbHelpers.getDbConnection(this));
 
@@ -48,4 +58,15 @@ public class ListUser extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+
+        listView.deferNotifyDataSetChanged();
+
+    }
+
+
 }

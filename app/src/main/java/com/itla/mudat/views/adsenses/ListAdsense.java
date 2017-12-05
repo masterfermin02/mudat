@@ -1,8 +1,15 @@
 package com.itla.mudat.views.adsenses;
 
-/**
- * Created by maste on 12/2/2017.
- */
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 
-public class ListAdsense {
+import com.itla.mudat.R;
+
+public class ListAdsense extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_list_adsense);
+    }
 }
