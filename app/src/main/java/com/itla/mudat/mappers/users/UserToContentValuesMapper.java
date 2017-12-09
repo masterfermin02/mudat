@@ -1,4 +1,4 @@
-package com.itla.mudat.repository.user;
+package com.itla.mudat.mappers.users;
 
 import android.content.ContentValues;
 

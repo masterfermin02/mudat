@@ -28,6 +28,11 @@ public class ListCategoryAdapter extends BaseAdapter {
         this.context = context;
 
     }
+
+    public void setCategories(List<Category> categories){
+        this.categories = categories;
+    }
+
     @Override
     public int getCount() {
         return categories.size();

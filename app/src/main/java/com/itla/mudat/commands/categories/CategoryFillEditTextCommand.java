@@ -16,7 +16,6 @@ public class CategoryFillEditTextCommand implements Command {
 
     private CategoryComponent categoryComponent;
     private Bundle parameter;
-    private Mapper<Category,CategoryComponent> categoryToComponent = new CategoryToComponent();
 
 
     public CategoryFillEditTextCommand(CategoryComponent categoryComponent, Bundle parameter){

@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.itla.mudat.entity.User;
 import com.itla.mudat.mappers.Mapper;
+import com.itla.mudat.mappers.users.CursorToUserMapper;
+import com.itla.mudat.mappers.users.UserToContentValuesMapper;
 import com.itla.mudat.repository.Repository;
 import com.itla.mudat.repository.Specification;
 import com.itla.mudat.repository.SqlSpecification;

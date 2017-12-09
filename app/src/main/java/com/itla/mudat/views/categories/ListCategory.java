@@ -21,6 +21,7 @@ public class ListCategory extends AppCompatActivity {
 
     private CategorySqlRepository repository;
     private ListView listView;
+    private  ListCategoryAdapter listCategoryAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +40,8 @@ public class ListCategory extends AppCompatActivity {
         repository = new CategorySqlRepository(DbHelpers.getDbConnection(this));
 
         List<Category> listViewCategories = repository.query(new AllCategorySpecificacion());
-
-        listView.setAdapter(new ListCategoryAdapter(listViewCategories, this));
+        listCategoryAdapter = new ListCategoryAdapter(listViewCategories, this);
+        listView.setAdapter(listCategoryAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -54,5 +55,13 @@ public class ListCategory extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        listCategoryAdapter.setCategories(repository.query(new AllCategorySpecificacion()));
+        listCategoryAdapter.notifyDataSetChanged();
     }
 }

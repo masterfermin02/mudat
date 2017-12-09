@@ -1,4 +1,4 @@
-package com.itla.mudat.repository.user;
+package com.itla.mudat.mappers.users;
 
 import android.database.Cursor;
 
@@ -14,6 +14,8 @@ import com.itla.mudat.schema.UserSchema;
 
 public class CursorToUserMapper implements Mapper<Cursor,User> {
 
+    private final int INACTIVE = 0;
+
     public User map(Cursor cursor)
     {
         User user = new User();
@@ -24,7 +26,7 @@ public class CursorToUserMapper implements Mapper<Cursor,User> {
         user.setEmail(cursor.getString(cursor.getColumnIndex(UserSchema.EMAIL)));
         user.setPhone(cursor.getString(cursor.getColumnIndex(UserSchema.PHONE)));
         user.setPass(cursor.getString(cursor.getColumnIndex(UserSchema.PASS)));
-        user.setStatus(cursor.getInt(cursor.getColumnIndex(UserSchema.STATUS)) != IApp.FALSE);
+        user.setStatus(cursor.getInt(cursor.getColumnIndex(UserSchema.STATUS)) != INACTIVE);
 
         return user;
     }

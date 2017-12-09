@@ -10,12 +10,12 @@ import com.itla.mudat.entity.User;
  * Created by maste on 12/2/2017.
  */
 
-public class FillUserEditText implements Command {
+public class UserFillEditTextCommand implements Command {
 
     private UserComponent userComponent;
     private Bundle parameter;
 
-    public FillUserEditText(UserComponent userComponent, Bundle parameter){
+    public UserFillEditTextCommand(UserComponent userComponent, Bundle parameter){
         this.userComponent = userComponent;
         this.parameter = parameter;
 

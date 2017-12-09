@@ -117,7 +117,7 @@ public class AdsenseSqlRepository implements Repository<Adsense> {
         final SqlSpecification sqlSpecification = (SqlSpecification) specification;
 
         final SQLiteDatabase database = openHelper.getReadableDatabase();
-        final List<Adsense> categories = new ArrayList<>();
+        final List<Adsense> adsenses = new ArrayList<>();
 
         try {
             final Cursor cursor = database.rawQuery(sqlSpecification.toSqlQuery(), new String[]{});
@@ -125,12 +125,12 @@ public class AdsenseSqlRepository implements Repository<Adsense> {
             for (int i = 0, size = cursor.getCount(); i < size; i++) {
                 cursor.moveToPosition(i);
 
-                categories.add(toAdsenseMapper.map(cursor));
+                adsenses.add(toAdsenseMapper.map(cursor));
             }
 
             cursor.close();
 
-            return categories;
+            return adsenses;
         } finally {
             database.close();
         }

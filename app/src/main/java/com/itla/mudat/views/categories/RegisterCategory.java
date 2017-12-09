@@ -11,7 +11,6 @@ import com.itla.mudat.commands.categories.CategoryFillEditTextCommand;
 import com.itla.mudat.commands.categories.CleanCategoryCommand;
 import com.itla.mudat.commands.categories.SaveCategoryPipeLine;
 import com.itla.mudat.components.CategoryComponent;
-import com.itla.mudat.entity.Category;
 import com.itla.mudat.helpers.DbHelpers;
 import com.itla.mudat.repository.category.CategorySqlRepository;
 
@@ -33,7 +32,7 @@ public class RegisterCategory extends AppCompatActivity {
         categoryComponent.setName((EditText) findViewById(R.id.category_name));
 
         cleanCategory = new CleanCategoryCommand(categoryComponent);
-        saveCommand = new SaveCategoryPipeLine(categoryComponent,repository);
+        saveCommand = new SaveCategoryPipeLine(categoryComponent,repository, this, cleanCategory);
         new CategoryFillEditTextCommand(categoryComponent, getIntent().getExtras()).execute();
     }
 
@@ -48,4 +47,6 @@ public class RegisterCategory extends AppCompatActivity {
 
         cleanCategory.execute();
     }
+
+
 }

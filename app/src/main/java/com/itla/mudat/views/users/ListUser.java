@@ -23,6 +23,7 @@ public class ListUser extends AppCompatActivity {
 
     private UserSqlRepository repository;
     private ListView listView;
+    private ListUserAdapter listUserAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +42,8 @@ public class ListUser extends AppCompatActivity {
         repository = new UserSqlRepository(DbHelpers.getDbConnection(this));
 
         List<User> listUsers = repository.query(new AllUserSpecification());
-
-        listView.setAdapter(new ListUserAdapter(listUsers, this));
+        listUserAdapter = new ListUserAdapter(listUsers, this);
+        listView.setAdapter(listUserAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -63,8 +64,8 @@ public class ListUser extends AppCompatActivity {
     public void onResume()
     {
         super.onResume();
-
-        listView.deferNotifyDataSetChanged();
+        listUserAdapter.setUsers(repository.query(new AllUserSpecification()));
+        listUserAdapter.notifyDataSetChanged();
 
     }
 
