@@ -28,4 +28,14 @@ public class AdsenseSchema {
             "`"+LOCATION+"`	TEXT,"+
             "`"+DETAILS+"`	TEXT"+
             ");";
+
+    public static final String fields = TABLE+".`"+ID+"`,"+
+            TABLE+".`"+USERID+"`,"+
+            TABLE+".`"+CATEGORYID+"`,"+
+            TABLE+".`"+CREATED_AT+"`,"+
+            TABLE+".`"+CONDICTION+"`,"+
+            TABLE+".`"+PRICE+"`,"+
+            TABLE+".`"+TITLE+"`,"+
+            TABLE+".`"+LOCATION+"`	,"+
+            TABLE+".`"+DETAILS+"`";
 }

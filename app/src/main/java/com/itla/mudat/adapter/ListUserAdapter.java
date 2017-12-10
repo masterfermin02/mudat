@@ -6,7 +6,9 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -66,15 +68,31 @@ public class ListUserAdapter extends BaseAdapter {
 
         TextView email = (TextView) view.findViewById(R.id.item_user_email);
         TextView name = (TextView) view.findViewById(R.id.item_user_name);
-        ImageButton login = (ImageButton) view.findViewById(R.id.btn_login_user);
+        TextView type = (TextView) view.findViewById(R.id.item_user_type);
+        TextView login = (TextView) view.findViewById(R.id.btn_login_user);
+        TextView edit = (TextView) view.findViewById(R.id.btn_user_edit);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 IApp.setUserLogged(user);
+
+            }
+        });
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent rUser = new Intent(context, RegisterUser.class);
+                User u = (User) user;
+
+                rUser.putExtra("user", u);
+                context.startActivity(rUser);
+
             }
         });
         email.setText(user.getEmail());
         name.setText(user.getName());
+        type.setText(user.getUserType().toString());
         return view;
     }
 

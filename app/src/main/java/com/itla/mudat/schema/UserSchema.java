@@ -15,6 +15,7 @@ public class UserSchema {
     public static final String PHONE = "phone";
     public static final String PASS = "pass";
     public static final String STATUS = "status";
+    public static final String JOIN_NAME = "user_name";
 
 
     public static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS `"+TABLE+"` (" +

@@ -48,20 +48,23 @@ public class ListAdsense extends AppCompatActivity {
         listAdapter = new ListAdsenseAdapter(adsenses, this);
         listView.setAdapter(listAdapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-                Intent rContext = new Intent(ListAdsense.this, RegisterAdsense.class);
-                Adsense adsense = (Adsense) adapterView.getItemAtPosition(i);
-
-                rContext.putExtra("adsense", adsense);
-                startActivity(rContext);
-
-            }
-        });
         if(IApp.userIsLogged() && IApp.isPublicador())
+        {
             btnAddAdsense.setVisibility(View.VISIBLE);
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                    Intent rContext = new Intent(ListAdsense.this, RegisterAdsense.class);
+                    Adsense adsense = (Adsense) adapterView.getItemAtPosition(i);
+
+                    rContext.putExtra("adsense", adsense);
+                    startActivity(rContext);
+
+                }
+            });
+        }
+
     }
 
     @Override
