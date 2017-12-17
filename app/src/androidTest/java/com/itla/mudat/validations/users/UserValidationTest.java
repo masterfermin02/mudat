@@ -4,7 +4,7 @@ import android.content.Context;
 import android.support.test.runner.AndroidJUnit4;
 import android.widget.EditText;
 
-import com.itla.mudat.components.UserComponent;
+import com.itla.mudat.components.users.UserComponent;
 
 import org.junit.After;
 import org.junit.Before;

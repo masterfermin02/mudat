@@ -4,32 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="208dp"
-    tools:context="com.itla.mudat.MainActivity">
+    tools:context="com.itla.mudat.views.PublicadorMenu">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
         <Button
-            android:id="@+id/login_user"
+            android:id="@+id/publicadorUser"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="login"
-            android:text="Login" />
+            android:text="User" />
         <Button
-            android:id="@+id/register_publicador"
+            android:id="@+id/publicadorAdsense"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="registerPublicador"
-            android:text="Registrate como publicador" />
+            android:text="Adsense" />
         <Button
-            android:id="@+id/register_client"
+            android:id="@+id/publicadorCategory"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="registerClient"
-            android:text="Registrate como cliente" />
+            android:text="Category" />
 
     </LinearLayout>
 

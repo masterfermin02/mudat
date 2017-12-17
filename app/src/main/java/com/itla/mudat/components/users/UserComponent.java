@@ -1,4 +1,4 @@
-package com.itla.mudat.components;
+package com.itla.mudat.components.users;
 
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;

@@ -24,7 +24,12 @@
         <activity android:name=".views.categories.ListCategory" />
         <activity android:name=".views.categories.RegisterCategory" />
         <activity android:name=".views.adsenses.ListAdsense" />
-        <activity android:name=".views.adsenses.RegisterAdsense"></activity>
+        <activity android:name=".views.adsenses.RegisterAdsense" />
+        <activity android:name=".views.users.RegisterPublicador" />
+        <activity android:name=".views.users.RegisterClient" />
+        <activity android:name=".views.users.Login" />
+        <activity android:name=".views.PublicadorMenu" />
+        <activity android:name=".views.ClientMenu"></activity>
     </application>
 
 </manifest>

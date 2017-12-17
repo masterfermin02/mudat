@@ -10,26 +10,23 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
         <Button
-            android:id="@+id/login_user"
+            android:id="@+id/register_user"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="login"
-            android:text="Login" />
+            android:text="User" />
         <Button
-            android:id="@+id/register_publicador"
+            android:id="@+id/adsense"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="registerPublicador"
-            android:text="Registrate como publicador" />
+            android:text="Adsense" />
         <Button
-            android:id="@+id/register_client"
+            android:id="@+id/category"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="registerClient"
-            android:text="Registrate como cliente" />
+            android:text="Category" />
 
     </LinearLayout>
 

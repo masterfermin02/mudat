@@ -1,6 +1,6 @@
 package com.itla.mudat.validations.users;
 
-import com.itla.mudat.components.UserComponent;
+import com.itla.mudat.components.users.UserComponent;
 import com.itla.mudat.validations.IValidation;
 import com.itla.mudat.validations.PipeLineValidation;
 

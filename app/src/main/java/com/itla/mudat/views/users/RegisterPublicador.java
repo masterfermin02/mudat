@@ -5,16 +5,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
-import com.itla.mudat.commands.users.CleanUserScreenCommand;
-import com.itla.mudat.commands.users.UserFillEditTextCommand;
-import com.itla.mudat.commands.users.SavePipeLineCommand;
-import com.itla.mudat.components.users.UserComponent;
-
 import com.itla.mudat.R;
+import com.itla.mudat.commands.users.CleanUserScreenCommand;
+import com.itla.mudat.commands.users.SavePipeLineCommand;
+import com.itla.mudat.commands.users.UserFillEditTextCommand;
+import com.itla.mudat.components.users.UserComponent;
+import com.itla.mudat.entity.UserType;
 import com.itla.mudat.helpers.DbHelpers;
 import com.itla.mudat.repository.user.UserSqlRepository;
 
-public class RegisterUser extends AppCompatActivity {
+public class RegisterPublicador extends AppCompatActivity {
 
 
     private UserSqlRepository repository;
@@ -36,6 +36,7 @@ public class RegisterUser extends AppCompatActivity {
         userComponent.setEmail((EditText) findViewById(R.id.email));
         userComponent.setPhone((EditText) findViewById(R.id.phone));
         userComponent.setPass((EditText) findViewById(R.id.pass));
+        userComponent.setUserType(UserType.PUBLICADOR);
 
         cleanUserScreenCommand = new CleanUserScreenCommand(userComponent);
         saveCommand = new SavePipeLineCommand(userComponent, repository, cleanUserScreenCommand, this);

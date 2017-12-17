@@ -1,14 +1,7 @@
 package com.itla.mudat.commands.users;
 
-import android.support.v7.app.AppCompatActivity;
-import android.widget.EditText;
-
-import com.itla.mudat.R;
 import com.itla.mudat.commands.Command;
-import com.itla.mudat.components.UserComponent;
-import com.itla.mudat.entity.User;
-import com.itla.mudat.entity.UserType;
-import com.itla.mudat.repository.user.UserSqlRepository;
+import com.itla.mudat.components.users.UserComponent;
 
 /**
  * Created by maste on 11/30/2017.

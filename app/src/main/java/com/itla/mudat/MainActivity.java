@@ -5,9 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.itla.mudat.views.adsenses.ListAdsense;
-import com.itla.mudat.views.categories.ListCategory;
-import com.itla.mudat.views.users.ListUser;
+import com.itla.mudat.views.users.Login;
+import com.itla.mudat.views.users.RegisterClient;
+import com.itla.mudat.views.users.RegisterPublicador;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -21,28 +21,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /** Called when the user taps the register button */
-    public void user(View view) {
+    public void login(View view) {
         // Do something in response to button
-        Intent intent = new Intent(this, ListUser.class);
+        Intent intent = new Intent(this, Login.class);
         startActivity(intent);
 
     }
 
     /** Called when the user taps the register button */
-    public void adsense(View view) {
+    public void registerPublicador(View view) {
         // Do something in response to button
-        Intent intent = new Intent(this, ListAdsense.class);
+        Intent intent = new Intent(this, RegisterPublicador.class);
         startActivity(intent);
 
     }
 
     /** Called when the user taps the register button */
-    public void category(View view) {
+    public void registerClient(View view) {
         // Do something in response to button
-        Intent intent = new Intent(this, ListCategory.class);
+        Intent intent = new Intent(this, RegisterClient.class);
         startActivity(intent);
 
     }
+
 
 
 }

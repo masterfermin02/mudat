@@ -1,9 +1,8 @@
 package com.itla.mudat.commands.users;
 
 import com.itla.mudat.commands.Command;
-import com.itla.mudat.components.UserComponent;
+import com.itla.mudat.components.users.UserComponent;
 import com.itla.mudat.entity.User;
-import com.itla.mudat.entity.UserType;
 import com.itla.mudat.repository.user.UserSqlRepository;
 
 /**

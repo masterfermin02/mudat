@@ -3,7 +3,7 @@ package com.itla.mudat.validations.users;
 import android.text.TextUtils;
 import android.widget.EditText;
 
-import com.itla.mudat.components.UserComponent;
+import com.itla.mudat.components.users.UserComponent;
 import com.itla.mudat.validations.IValidation;
 
 /**

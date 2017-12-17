@@ -82,7 +82,7 @@ public class UserSqlRepository implements Repository<User> {
     {
         List<User> list = query(specification);
         if(!list.isEmpty())
-            return query(specification).get(0);
+            return query(specification).get(this.FIRST);
         return new User();
     }
 

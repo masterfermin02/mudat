@@ -3,7 +3,7 @@ package com.itla.mudat.commands.users;
 import android.os.Bundle;
 
 import com.itla.mudat.commands.Command;
-import com.itla.mudat.components.UserComponent;
+import com.itla.mudat.components.users.UserComponent;
 import com.itla.mudat.entity.User;
 
 /**

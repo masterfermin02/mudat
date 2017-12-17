@@ -5,16 +5,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
-import com.itla.mudat.commands.users.CleanUserScreenCommand;
-import com.itla.mudat.commands.users.UserFillEditTextCommand;
-import com.itla.mudat.commands.users.SavePipeLineCommand;
-import com.itla.mudat.components.users.UserComponent;
-
 import com.itla.mudat.R;
+import com.itla.mudat.commands.users.CleanUserScreenCommand;
+import com.itla.mudat.commands.users.SavePipeLineCommand;
+import com.itla.mudat.commands.users.UserFillEditTextCommand;
+import com.itla.mudat.components.users.UserComponent;
 import com.itla.mudat.helpers.DbHelpers;
 import com.itla.mudat.repository.user.UserSqlRepository;
 
-public class RegisterUser extends AppCompatActivity {
+public class RegisterClient extends AppCompatActivity {
 
 
     private UserSqlRepository repository;

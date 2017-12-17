@@ -5,8 +5,7 @@ import android.app.Activity;
 import com.itla.mudat.commands.Command;
 import com.itla.mudat.commands.PipeLineCommand;
 import com.itla.mudat.commands.activities.FinishActivityCommand;
-import com.itla.mudat.components.UserComponent;
-import com.itla.mudat.repository.Repository;
+import com.itla.mudat.components.users.UserComponent;
 import com.itla.mudat.repository.user.UserSqlRepository;
 import com.itla.mudat.validations.users.UserValidation;
 

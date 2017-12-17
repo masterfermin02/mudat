@@ -7,6 +7,7 @@ import java.util.List;
  */
 
 public interface Repository<T> {
+    public static final int FIRST = 0;
     void add(T item);
 
     void add(Iterable<T> items);
